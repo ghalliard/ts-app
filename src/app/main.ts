@@ -1,19 +1,25 @@
-import { addProducto } from "./products/product.service";
-import { Producto } from "./products/product.model";
+import { addProducto, updateProduct } from "./products/product.service";
+import { ProductDto } from "./products/productDto.model";
 
-const producto1: Producto = {
-  id: '123',
+const producto1: ProductDto = {
   title: 'adidas training',
-  createdAt: new Date(),
-  updatedAt: new Date(),
   stock: 10,
   size: 'M',
-  category: {
-    id: '01',
-    createdAt: new Date('2023-08-10'),
-    updatedAt: new Date(),
-    name: 'zapatillas'
-  }
+  price: 100,
+  tags: ['electronics'],
+  categoryId: '1'
 }
+/*
+const dto: ProductDto = {
+  categoryId: 2,
+};
+*/
+const res1 = addProducto(producto1);
+const res2 = updateProduct(res1.id, {
+  title: 'otro titulo',
+  price: 1000,
+  stock: 44
+});
 
-addProducto(producto1);
+console.log(res1);
+console.log(res2);

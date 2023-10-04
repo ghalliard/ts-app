@@ -6,5 +6,9 @@ export interface Producto extends BaseModel{
   title: string,
   stock: number,
   size?: Size,
-  category: Category
+  category: Category,
+  price: number,
+  tags: string[]
 }
+
+
